@@ -1,42 +1,207 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Section wrapper */
+.doctors-page {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 16px;
+  font-family: Arial, sans-serif;
+}
+
+/* Title */
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Grid for cards */
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* Card styling */
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* Image */
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Card body */
+.card-body {
+  padding: 12px;
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #222;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.card-text {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+  text-align: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-text small {
+  color: #777;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* General page container */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 16px;
+  font-family: Arial, sans-serif;
 }
 
-.card {
-  padding: 2em;
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
 }
 
-.read-the-docs {
-  color: #888;
+/* Welcome text */
+.header span {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Button override (Bootstrap adds styles already) */
+.header .btn {
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+/* Main content wrapper */
+.main-content {
+  margin-top: 20px;
+}
+
+/* Wrapper for the login page */
+.Login {
+  min-height: 100vh;               /* full screen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;             /* light gray background */
+  font-family: Arial, sans-serif;
+}
+
+/* Center content */
+.Login .padre {
+  width: 100%;
+  max-width: 380px;
+}
+
+/* Card */
+.Login .card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Inputs */
+.Login .cajatexto {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.Login .cajatexto:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Submit button */
+.Login .btnform {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  background: #007bff;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.Login .btnform:hover {
+  background: #0056b3;
+}
+
+/* Extra text */
+.Login .texto {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+  color: #333;
+}
+
+/* Switch button (small inline link style) */
+.Login .btnswitch {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+}
+
+.appointment {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.appointment form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.appointment input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.appointment button {
+  padding: 8px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.appointment button:hover {
+  background: #0056b3;
+}
+
+.appointment ul {
+  padding-left: 18px;
 }

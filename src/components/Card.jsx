@@ -1,43 +1,54 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { onSnapshot } from "firebase/firestore";
-import { hotelCollection } from "./Controller.jsx"; // Importamos la colección de hoteles
+import { doctorsCollection } from "./Controller.jsx"; // Importamos la colección de doctores
+import Appointment from "./Appointment";
 
 
 function Card(){
-    const [hotels, setHotels] = React.useState([]);
+    const [doctors, setDoctors] = React.useState([]);
 
     useEffect(() => {
-        const unsubscribe = onSnapshot(hotelCollection, (snapshot) => {
-            const hotelsData = snapshot.docs.map(doc => ({
+        const unsubscribe = onSnapshot(doctorsCollection, (snapshot) => {
+            const doctorsData = snapshot.docs.map(doc => ({
                 id: doc.id,
                 ...doc.data()
             }));
-            setHotels(hotelsData);
-            //console.log("Hoteles actualizados:", hotelsData);
+            setDoctors(doctorsData);
+            //console.log("doctores actualizados:", doctorsData);
 
         });
         return () => unsubscribe(); // limpiar el efecto al desmontar el componente
     }, []);   
 
 
-     return (
-        <div className="container">
-                    <h2 className="text-center">Hoteles de Las Vegas</h2>
-                    <div className="row row-cols-1 row-cols-md-2 g-4">
-                        {hotels.map((hotel) => (
-                            <div className="card" key={hotel.id}>
-                                <img src={hotel.imageCover} style={{width: '100%', height: '250px'}} className="card-img-top" alt={hotel.name} />
-                                <div className="card-body">
-                                    <h5 className="card-title">{hotel.name}</h5>
-                                    <p className="card-text">{hotel.description}</p>
-                                    <p className="card-text"><small className="text-muted">Precio: ${hotel.price}</small></p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+return (
+  <div className="doctors-page">
+    <h2 className="page-title">Doctores activos</h2>
+
+    <div className="doctors-grid">
+      {doctors.map((doctor) => (
+        <div className="card" key={doctor.id}>
+          <img
+            src={doctor.Avatar}
+            className="card-img-top"
+            alt={doctor.name}
+          />
+          <div className="card-body">
+            <h5 className="card-title">{doctor.name}</h5>
+            <p className="card-text">{doctor.description}</p>
+            <p className="card-text">
+              <small className="text-muted">
+                Precio de cita médica: ${doctor.price}
+              </small>
+              <Appointment doctor={doctor} /> 
+            </p>
+          </div>
         </div>
-    );
+      ))}
+    </div>
+  </div>
+);
 
 }
 export default Card;
