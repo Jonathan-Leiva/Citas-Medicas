@@ -1,4 +1,4 @@
-/* Section wrapper */
+
 .doctors-page {
   max-width: 1000px;
   margin: 20px auto;
@@ -6,21 +6,21 @@
   font-family: Arial, sans-serif;
 }
 
-/* Title */
+
 .page-title {
   text-align: center;
   margin-bottom: 20px;
   color: #333;
 }
 
-/* Grid for cards */
+
 .doctors-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 16px;
 }
 
-/* Card styling */
+
 .card {
   background: #fff;
   border: 1px solid #ddd;
@@ -34,14 +34,14 @@
   transform: translateY(-3px);
 }
 
-/* Image */
+
 .card-img-top {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
 
-/* Card body */
+
 .card-body {
   padding: 12px;
 }
@@ -64,7 +64,7 @@
   color: #777;
 }
 
-/* General page container */
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
@@ -72,7 +72,7 @@
   font-family: Arial, sans-serif;
 }
 
-/* Header */
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -82,41 +82,41 @@
   margin-bottom: 20px;
 }
 
-/* Welcome text */
+
 .header span {
   font-size: 16px;
   color: #333;
 }
 
-/* Button override (Bootstrap adds styles already) */
+
 .header .btn {
   font-size: 14px;
   padding: 6px 12px;
   border-radius: 4px;
 }
 
-/* Main content wrapper */
+
 .main-content {
   margin-top: 20px;
 }
 
-/* Wrapper for the login page */
+
 .Login {
-  min-height: 100vh;               /* full screen height */
+  min-height: 100vh;               
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f5f5f5;             /* light gray background */
+  background: #f5f5f5;             
   font-family: Arial, sans-serif;
 }
 
-/* Center content */
+
 .Login .padre {
   width: 100%;
   max-width: 380px;
 }
 
-/* Card */
+
 .Login .card {
   background: #fff;
   border: 1px solid #ddd;
@@ -125,7 +125,7 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* Inputs */
+
 .Login .cajatexto {
   width: 100%;
   padding: 10px;
@@ -138,7 +138,7 @@
   outline: none;
 }
 
-/* Submit button */
+
 .Login .btnform {
   width: 100%;
   padding: 10px;
@@ -154,7 +154,7 @@
   background: #0056b3;
 }
 
-/* Extra text */
+
 .Login .texto {
   margin-top: 15px;
   font-size: 14px;
@@ -162,7 +162,7 @@
   color: #333;
 }
 
-/* Switch button (small inline link style) */
+
 .Login .btnswitch {
   background: none;
   border: none;
