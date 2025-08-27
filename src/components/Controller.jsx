@@ -1,6 +1,5 @@
 import { collection, getFirestore } from "firebase/firestore";
-import appFirebase from "../credenciales"; // importamos las credenciales de Firebase
+import appFirebase from "../credenciales";
 
-export const firestore = getFirestore(appFirebase); // inicializamos Firestore con las credenciales
-
-export const doctorsCollection = collection(firestore, "doctors"); // creamos una referencia a la colección "doctors" en firestore
+export const firestore = getFirestore(appFirebase);
+export const consultasCollection = collection(firestore, "consultas");

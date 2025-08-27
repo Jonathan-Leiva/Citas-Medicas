@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { addDoc, collection, onSnapshot, serverTimestamp } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-import { db } from "../credenciales"; // tu configuración de Firebase
+import { db } from "../credenciales";
 
 function Appointment({ doctor }) {
-  const auth = getAuth();                     // 👈 auth actual
-  const user = auth.currentUser;              // puede ser null si no hay login
+  const auth = getAuth();
+  const user = auth.currentUser;
 
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [message, setMessage] = useState("");
   const [appointments, setAppointments] = useState([]);
 
-  // Recomendación: usa nombre en plural para colecciones
   const appointmentCollection = collection(db, "appointments");
 
   const handleSubmit = async (e) => {
@@ -29,14 +28,13 @@ function Appointment({ doctor }) {
     try {
       await addDoc(appointmentCollection, {
         doctorId: doctor.id,
-        doctorName: doctor.name,
-        date,                // "YYYY-MM-DD"
-        time,                // "HH:mm"
-        // 👇 quién agenda
+        doctorNombre: doctor.Nombre,
+        date,
+        time,
         userId: user.uid,
         userEmail: user.email || "",
-        userName: user.displayName || "",     // si lo tienes
-        createdAt: serverTimestamp(),         // mejor que new Date()
+        userName: user.displayName || "",
+        createdAt: serverTimestamp(),
       });
       setMessage("✅ Cita guardada correctamente");
       setDate("");
@@ -84,17 +82,14 @@ function Appointment({ doctor }) {
 
       {message && <p>{message}</p>}
 
-      <h4>📅 Citas agendadas</h4>
+      <h4> Programacion de citas </h4>
       <ul>
         {appointments
-          .filter((appt) => appt.doctorId === doctor.id) // solo este doctor
+          .filter((appt) => appt.doctorId === doctor.id)
           .map((appt) => (
             <li key={appt.id}>
-              {appt.date} a las {appt.time}
-              {" — "}
-              <em>
-                Agendada por {appt.userName || appt.userEmail || appt.userId}
-              </em>
+              {appt.date} a las {appt.time} — 
+              <em>Agendada por {appt.userName || appt.userEmail || appt.userId}</em>
             </li>
           ))}
       </ul>

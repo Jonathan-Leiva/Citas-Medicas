@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import appFirebase from '../credenciales'
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 const auth = getAuth(appFirebase);
 
 const Login = () => {
@@ -12,17 +13,23 @@ const Login = () => {
     const funcAutenticar = async (e) => {
         e.preventDefault();
         setError("");
+
+        if (!email || !password) {
+            setError("Debe completar email y contraseña.");
+            return;
+        }
+
         if (registrando) {
             try {
                 await createUserWithEmailAndPassword(auth, email, password);
-            } catch (error) {
-                setError("Asegúrate que la contraseña tenga al menos 8 carácteres y el correo sea válido.");
+            } catch (err) {
+                setError(err.message);
             }
         } else {
             try {
                 await signInWithEmailAndPassword(auth, email, password);
-            } catch (error) {
-                setError("Error al iniciar sesión. Asegúrate que la clave sea válida");
+            } catch (err) {
+                setError(err.message);
             }
         }
     }
@@ -68,3 +75,4 @@ const Login = () => {
 }
 
 export default Login
+    

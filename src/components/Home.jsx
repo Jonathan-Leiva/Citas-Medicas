@@ -1,28 +1,33 @@
 import React from 'react'
-import { getAuth, signOut } from "firebase/auth";
-import appFirebase from '../credenciales'
-const auth = getAuth(appFirebase);
+import { getAuth } from "firebase/auth";
 import Card from './Card.jsx'
 
-const Home = ({correoUsuario}) => {
-return (
-  <div className="container">
-    <header className="header">
-      <span>Bienvenido usuario {correoUsuario}</span>
-      <button className="btn btn-danger" onClick={() => auth.signOut()}>
-        Cerrar Sesión
-      </button>
-    </header>
+const Home = ({ usuario }) => {
+  const auth = getAuth();
 
-    <div>
-      <main className="main-content"></main>
-      <Card />
+  const handleSignOut = async () => {
+    try {
+      await auth.signOut();
+    } catch (err) {
+      console.error("Error cerrando sesión: ", err);
+    }
+  }
+
+  return (
+    <div className="container">
+      <header className="header">
+        <span>Bienvenido usuario {usuario.email}</span>
+        <button className="btn btn-danger" onClick={handleSignOut}>
+          Cerrar Sesión
+        </button>
+      </header>
+
+      <div>
+        <main className="main-content"></main>
+        <Card />
+      </div>
     </div>
-  </div>
-);
-
-  
-
+  );
 }
 
 export default Home
